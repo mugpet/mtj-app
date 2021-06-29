@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './cool.png';
+import { useState } from 'react'
+
 
 function App() {
+
+  const [coolInput, setCoolInput] = useState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col w-screen h-screen justify-center">
+
+      <div className="self-center justify-center">
+        <img src="./cool.png" className="w-80 text-center " alt="logo" />
+      </div>
+
+      <div className="text-center ">
+        <p className="mb-4 text-gray-500">Skriv noget sejt</p>
+        <input className="text-2xl border-b outline-none mb-4 " value={coolInput} onChange={(e) => setCoolInput(e.target.value)} />
+      </div>
+
+
+      <p>
+        {coolInput && coolInput !== "" && <p className="text-5xl font-extrabold text-center">Det er for vildt.. <span className="text-yellow-600">{coolInput}!!!</span></p>}
+      </p>
+
     </div>
   );
 }
